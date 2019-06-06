@@ -1,0 +1,19 @@
+<p>
+ periya servers works!
+</p>
+
+<label for="">server name</label>
+<!-- <input type="text" class="form-control" (input)="onUpdateServerName($event)"> -->
+<input type="text" class="form-control" [(ngModel)]="serverName">
+<!-- <p>{{serverName}}</p> -->
+<button class="btn btn-primary" [disabled]="!allowNewServer"  
+(click)="onCreateServer()">  Add Servers</button>
+<!-- <h2 [innerText]="allowNewServer"></h2> -->
+<!-- <h2 >{{allowNewServer}}</h2> -->
+<p *ngIf="serverCreated ; else noServer">{{serverCreationStatus}}</p>
+<ng-template #noServer>
+    <p>{{serverCreationStatus}}</p>
+</ng-template>
+
+<app-server *ngFor="let s of servers;let i =index"> </app-server>
+
